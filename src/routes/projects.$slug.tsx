@@ -34,7 +34,8 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectDetail() {
-  const { project: p } = Route.useLoaderData();
+  const data = Route.useLoaderData() as { project: (typeof projects)[number] };
+  const p = data.project;
 
   return (
     <article className="pt-32 pb-24">
